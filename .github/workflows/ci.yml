@@ -74,8 +74,8 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: ios-build-${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.sh CompileIos'
-        run: ./build.sh CompileIos
+      - name: Run './build.sh Foo'
+        run: ./build.sh Foo
         env:
           P12B64: ${{ secrets.P12B64 }}
           P12Password: ${{ secrets.P12PASSWORD }}
@@ -107,8 +107,8 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: maccatalyst-build-${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.sh CompileMacCatalyst'
-        run: ./build.sh CompileMacCatalyst
+      - name: Run './build.sh Foo'
+        run: ./build.sh Foo
         env:
           P12B64: ${{ secrets.P12B64 }}
           P12Password: ${{ secrets.P12PASSWORD }}
@@ -136,8 +136,8 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: windows-build-${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.cmd CompileWindows'
-        run: ./build.cmd CompileWindows
+      - name: Run './build.cmd Foo'
+        run: ./build.cmd Foo
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -158,8 +158,8 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: compile-library-${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.cmd CompileLib --solution AvantiPoint.Nuke.Maui.sln --project-name AvantiPoint.Nuke.Maui'
-        run: ./build.cmd CompileLib --solution AvantiPoint.Nuke.Maui.sln --project-name AvantiPoint.Nuke.Maui
+      - name: Run './build.cmd Foo --solution AvantiPoint.Nuke.Maui.sln --project-name AvantiPoint.Nuke.Maui'
+        run: ./build.cmd Foo --solution AvantiPoint.Nuke.Maui.sln --project-name AvantiPoint.Nuke.Maui
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -186,8 +186,8 @@ jobs:
             .nuke/temp
             ~/.nuget/packages
           key: publish-internal-${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
-      - name: Run './build.cmd PublishNuGet'
-        run: ./build.cmd PublishNuGet
+      - name: Run './build.cmd Foo'
+        run: ./build.cmd Foo
         env:
           InHouseNugetFeed: ${{ secrets.IN_HOUSE_NUGET_FEED }}
           InHouseApiKey: ${{ secrets.IN_HOUSE_API_KEY }}
