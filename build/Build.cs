@@ -2,6 +2,7 @@ using System;
 using AvantiPoint.Nuke.Maui;
 using AvantiPoint.Nuke.Maui.CI.AzurePipelines;
 using AvantiPoint.Nuke.Maui.CI.GitHubActions;
+using AvantiPoint.Nuke.Maui.Windows;
 using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Tools.NerdbankGitVersioning;
@@ -16,7 +17,7 @@ class Build : MauiBuild, ICompileLibrary, IPublishInternal, ICodeSignNuget
     Target Foo => _ => _
         .Executes(() =>
         {
-
+            WinUIAppSigning.AzureKeyVaultSign()
         });
 
     public GitHubActions GitHubActions => GitHubActions.Instance;

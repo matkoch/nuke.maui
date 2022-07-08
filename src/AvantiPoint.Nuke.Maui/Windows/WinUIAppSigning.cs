@@ -10,7 +10,7 @@ using static Nuke.Common.Tools.SignTool.SignToolTasks;
 
 namespace AvantiPoint.Nuke.Maui.Windows;
 
-internal static class WinUIAppSigning
+public static class WinUIAppSigning
 {
     public static AbsolutePath CertificatePath => NukeBuild.TemporaryDirectory / "WinSignCert.pfx";
 
@@ -39,18 +39,18 @@ internal static class WinUIAppSigning
 
     public static bool AzureKeyVaultSign(this IWinUICodeSign codeSign, IEnumerable<string> files)
     {
-        if (string.IsNullOrEmpty(codeSign.AzureKeyVault) ||
-            string.IsNullOrEmpty(codeSign.AzureKeyVaultCertificate) ||
-            string.IsNullOrEmpty(codeSign.AzureKeyVaultClientId) ||
-            string.IsNullOrEmpty(codeSign.AzureKeyVaultClientSecret) ||
-            string.IsNullOrEmpty(codeSign.AzureKeyVaultTenantId))
-        {
-            Log.Debug("Build has not been configured for signing the MSIX with Azure Key Vault");
-            return false;
-        }
-
-        Assert.True(codeSign.AzureKeyVault.StartsWith("https://"), "The Uri must start with the https protocol");
-        Assert.True(Uri.TryCreate(codeSign.AzureKeyVault, UriKind.Absolute, out var uri), "The supplied Azure Key Vault is not a valid Uri.");
+        // if (string.IsNullOrEmpty(codeSign.AzureKeyVault) ||
+        //     string.IsNullOrEmpty(codeSign.AzureKeyVaultCertificate) ||
+        //     string.IsNullOrEmpty(codeSign.AzureKeyVaultClientId) ||
+        //     string.IsNullOrEmpty(codeSign.AzureKeyVaultClientSecret) ||
+        //     string.IsNullOrEmpty(codeSign.AzureKeyVaultTenantId))
+        // {
+        //     Log.Debug("Build has not been configured for signing the MSIX with Azure Key Vault");
+        //     return false;
+        // }
+        //
+        // Assert.True(codeSign.AzureKeyVault.StartsWith("https://"), "The Uri must start with the https protocol");
+        // Assert.True(Uri.TryCreate(codeSign.AzureKeyVault, UriKind.Absolute, out var uri), "The supplied Azure Key Vault is not a valid Uri.");
 
         AzureSignTool(_ => _
                 .SetKeyVaultUrl(codeSign.AzureKeyVault)
