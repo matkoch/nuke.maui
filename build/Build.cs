@@ -2,6 +2,7 @@ using System;
 using AvantiPoint.Nuke.Maui;
 using AvantiPoint.Nuke.Maui.CI.AzurePipelines;
 using AvantiPoint.Nuke.Maui.CI.GitHubActions;
+using Nuke.Common;
 using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.Tools.NerdbankGitVersioning;
 
@@ -10,7 +11,13 @@ using Nuke.Common.Tools.NerdbankGitVersioning;
 [AzurePipelines(typeof(CI))]
 class Build : MauiBuild, ICompileLibrary, IPublishInternal, ICodeSignNuget
 {
-    public static int Main () => Execute<Build>();
+    public static int Main () => Execute<Build>(x => x.Foo);
+
+    Target Foo => _ => _
+        .Executes(() =>
+        {
+
+        });
 
     public GitHubActions GitHubActions => GitHubActions.Instance;
 
