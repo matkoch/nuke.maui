@@ -12,7 +12,6 @@ public interface IEncodeFile : INukeBuild
     Target EncodeFile => _ => _
         .Description("Run this locally to help encode your files to base 64 regardless of which platform you're on.")
         .OnlyWhenStatic(() => IsLocalBuild)
-        .Requires(() => InputFilePath)
         .Executes(() =>
         {
             Assert.True(File.Exists(InputFilePath), $"The file '{InputFilePath}' does not exist at the given path.");

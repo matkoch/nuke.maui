@@ -13,8 +13,6 @@ public interface IPublishInternal : IHazArtifacts
     string InHouseApiKey => TryGetValue(() => InHouseApiKey);
 
     Target PublishNuGet => _ => _
-        .Requires(() => InHouseNugetFeed)
-        .Requires(() => InHouseApiKey)
         .Executes(() =>
         {
             DotNetNuGetPush(_ => _

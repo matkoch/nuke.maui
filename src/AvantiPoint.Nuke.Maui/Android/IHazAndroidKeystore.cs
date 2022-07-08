@@ -24,9 +24,6 @@ public interface IHazAndroidKeystore : INukeBuild
         .TryBefore<IDotNetRestore>()
         .TryBefore<IHazMauiWorkload>()
         .Unlisted()
-        .Requires(() => AndroidKeystoreB64)
-        .Requires(() => AndroidKeystoreName)
-        .Requires(() => AndroidKeystorePassword)
         .Executes(() =>
         {
             if(KeystorePath.FileExists())

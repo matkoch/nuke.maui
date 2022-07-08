@@ -14,11 +14,6 @@ public interface ICodeSignNuget : IHazArtifacts, IHazAzureKeyVaultCertificate
     Target CodeSign => _ => _
         .DependentFor<IPublishInternal>()
         .OnlyWhenStatic(() => !IsLocalBuild && !GitHubActions.Instance.IsPullRequest)
-        .Requires(() => AzureKeyVault)
-        .Requires(() => AzureKeyVaultCertificate)
-        .Requires(() => AzureKeyVaultClientId)
-        .Requires(() => AzureKeyVaultClientSecret)
-        .Requires(() => AzureKeyVaultTenantId)
         .Executes(() =>
         {
 

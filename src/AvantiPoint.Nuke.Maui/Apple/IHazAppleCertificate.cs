@@ -28,8 +28,6 @@ public interface IHazAppleCertificate : IHazGitRepository, INukeBuild
         .TryBefore<IDotNetRestore>()
         .BeforeMauiWorkload()
         .Unlisted()
-        .Requires(() => P12B64)
-        .Requires(() => P12Password)
         .Executes(() =>
         {
             Log.Debug("Restoring Apple Developer Certificate.");

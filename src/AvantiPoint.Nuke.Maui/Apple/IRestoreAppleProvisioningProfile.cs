@@ -21,10 +21,6 @@ public interface IRestoreAppleProvisioningProfile : IUsesAppStoreConnect
         .TryBefore<IDotNetRestore>()
         .BeforeMauiWorkload()
         .Unlisted()
-        .Requires(() => AppleIssuerId)
-        .Requires(() => AppleKeyId)
-        .Requires(() => AppleProfileId)
-        .Requires(() => AppleAuthKeyP8)
         .Executes(async () =>
         {
             bool ActiveProfile(ProfileResponse profile) =>
