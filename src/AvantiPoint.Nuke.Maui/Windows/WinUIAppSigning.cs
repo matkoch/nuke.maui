@@ -53,15 +53,15 @@ public static class WinUIAppSigning
         // Assert.True(Uri.TryCreate(codeSign.AzureKeyVault, UriKind.Absolute, out var uri), "The supplied Azure Key Vault is not a valid Uri.");
 
         AzureSignTool(_ => _
-                .SetKeyVaultUrl(codeSign.AzureKeyVault)
-                .SetKeyVaultClientId(codeSign.AzureKeyVaultClientId)
-                .SetKeyVaultClientSecret(codeSign.AzureKeyVaultClientSecret)
-                .SetKeyVaultTenantId(codeSign.AzureKeyVaultTenantId)
-                .SetKeyVaultCertificateName(codeSign.AzureKeyVaultCertificate)
-                .SetFileDigest(codeSign.DigestAlgorithm)
+                .SetKeyVaultUrl(codeSign?.AzureKeyVault)
+                .SetKeyVaultClientId(codeSign?.AzureKeyVaultClientId)
+                .SetKeyVaultClientSecret(codeSign?.AzureKeyVaultClientSecret)
+                .SetKeyVaultTenantId(codeSign?.AzureKeyVaultTenantId)
+                .SetKeyVaultCertificateName(codeSign?.AzureKeyVaultCertificate)
+                .SetFileDigest(codeSign?.DigestAlgorithm)
                 .SetTimestampRfc3161Url("http://timestamp.digicert.com")
-                .SetTimestampDigest(codeSign.DigestAlgorithm)
-                .When(codeSign.Verbosity == Verbosity.Verbose, _ => _
+                .SetTimestampDigest(codeSign?.DigestAlgorithm)
+                .When(codeSign?.Verbosity == Verbosity.Verbose, _ => _
                     .EnableVerbose())
                 .AddFiles(files));
 

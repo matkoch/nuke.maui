@@ -17,7 +17,7 @@ class Build : MauiBuild, ICompileLibrary, IPublishInternal, ICodeSignNuget
     Target Foo => _ => _
         .Executes(() =>
         {
-            WinUIAppSigning.AzureKeyVaultSign()
+            WinUIAppSigning.AzureKeyVaultSign(null, new string[0]);
         });
 
     public GitHubActions GitHubActions => GitHubActions.Instance;
