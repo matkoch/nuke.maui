@@ -1,4 +1,4 @@
-// Generated from https://raw.githubusercontent.com/AvantiPoint/nuke.maui/master/src/AvantiPoint.Nuke.Maui/Tools/NuGetKeyVaultSignTool/NuGetKeyVaultSignTool.json
+// Generated from https://raw.githubusercontent.com/matkoch/nuke.maui/master/src/AvantiPoint.Nuke.Maui/Tools/NuGetKeyVaultSignTool/NuGetKeyVaultSignTool.json
 
 using JetBrains.Annotations;
 using Newtonsoft.Json;

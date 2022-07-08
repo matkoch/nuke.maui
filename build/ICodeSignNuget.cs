@@ -21,6 +21,7 @@ public interface ICodeSignNuget : IHazArtifacts, IHazAzureKeyVaultCertificate
         .Requires(() => AzureKeyVaultTenantId)
         .Executes(() =>
         {
+
             if (!Uri.TryCreate(AzureKeyVault, UriKind.Absolute, out var uri))
                 Assert.Fail("The specified Code Sign Key Vault was not a valid uri");
 
